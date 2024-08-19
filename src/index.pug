@@ -1,0 +1,12 @@
+article#tpl
+    include components/meta.pug
+
+    main.main
+        h1.main__title!=data.title
+        .main__text!=data.text
+        .main__cards
+            each card in data.cards
+                a.card(class=card.id href="/")
+                    img.card__img(src=`~assets/images/${card.imgName}`, alt=card.title)
+                    p.card__title!=card.title
+                    p.card__text!=card.text

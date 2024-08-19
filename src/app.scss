@@ -1,0 +1,151 @@
+@import "css/fonts.scss";
+@import "css/utils.scss";
+@import "css/vars.scss";
+@import "css/globals.scss";
+@import "css/elements.scss";
+
+// components
+
+#tpl {
+    .main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: vh(54) vw(122) vh(79);
+        text-align: center;
+        height: 100%;
+        justify-content: center;
+
+        @media (--viewport-portrait-layout) {
+            height: auto;
+        }
+
+        @media (--viewport-portrait-layout) {
+            padding: rem(60, true) vw(32, true);
+            justify-content: flex-start;
+        }
+
+        &__title,
+        &__text,
+        &__cards {
+            opacity: 0;
+        }
+
+        &__title {
+            font-weight: $font-weight-main;
+            text-transform: uppercase;
+            font-size: rem(45);
+            line-height: 1.2;
+            margin-bottom: vh(23);
+
+            @media (--viewport-portrait-layout) {
+                font-size: rem(36, true);
+                margin-bottom: rem(20, true);
+            }
+        }
+
+        &__text {
+            margin-bottom: vh(62);
+            font-size: rem(18);
+            max-width: rem(709);
+
+            p:not(:last-of-type) {
+                margin-bottom: em(10, 18);
+            }
+
+            @media (--viewport-portrait-layout) {
+                margin-bottom: rem(40, true);
+                max-width: 100%;
+                font-size: rem(16, true);
+            }
+        }
+
+        $gap: 24;
+
+        &__cards {
+            display: flex;
+            justify-content: space-between;
+            gap: vw($gap);
+
+            @media (--viewport-portrait-layout) {
+                gap: rem($gap, true);
+                flex-direction: column;
+            }
+        }
+
+        .card {
+            width: calc(33% - #{vw($gap)} * 2 / 3);
+            transition: background-color 0.35s ease;
+            padding-bottom: rem(18);
+            cursor: pointer;
+            text-decoration: unset;
+
+            @media (--viewport-portrait-layout) {
+                width: 100%;
+            }
+
+            &.ravshana {
+                --accent-color: #dad6d1;
+            }
+
+            &.maksim {
+                --accent-color: #c9d0c9;
+            }
+
+            &.yulia {
+                --accent-color: #dcdcdc;
+            }
+
+            &__img {
+                width: 100%;
+                margin-bottom: vh(30);
+
+                @media (--viewport-portrait-layout) {
+                    margin-bottom: rem(26, true);
+                }
+            }
+
+            &__title {
+                font-size: rem(30);
+                text-transform: uppercase;
+                margin-bottom: rem(6);
+
+                @media (--viewport-portrait-layout) {
+                    font-size: rem(24, true);
+                    margin-bottom: rem(5, true);
+                }
+            }
+
+            &__text {
+                font-size: rem(20);
+
+                @media (--viewport-portrait-layout) {
+                    font-size: rem(16, true);
+                }
+            }
+
+            &:hover {
+                background-color: var(--accent-color);
+            }
+        }
+    }
+
+    &.ready {
+        .main {
+            &__title,
+            &__text,
+            &__cards {
+                opacity: 1;
+                transition: opacity 0.5s cubic-bezier(0.36, 0.01, 0.11, 1);
+            }
+
+            &__text {
+                transition-delay: 0.1s;
+            }
+
+            &__cards {
+                transition-delay: 0.3s;
+            }
+        }
+    }
+}
