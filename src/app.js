@@ -10,7 +10,7 @@ const start = () => {
             const headerHeight = header ? header.offsetHeight : 0;
 
             tpl.style.setProperty('--header-offset', 1 - (headerHeight / window.innerHeight));
-            tpl.style.setProperty('height', `${window.innerHeight - headerHeight}px`);
+            tpl.style.setProperty('min-height', `${window.innerHeight - headerHeight}px`);
         }
 
         setTimeout(() => {
