@@ -99,9 +99,13 @@
             &__img {
                 width: 100%;
                 margin-bottom: vh(30);
+                height: vh(472);
+                object-position: center top;
+                object-fit: cover;
 
                 @media (--viewport-portrait-layout) {
                     margin-bottom: rem(26, true);
+                    height: auto;
                 }
             }
 
